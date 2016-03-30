@@ -7,3 +7,4 @@ long_description 'Installs/Configures a simple CRDT stack based on roshi'
 version '0.1.0'
 
 depends 'apt', '~> 3.0.0'
+depends 'firewall', '~> 2.5.0'
