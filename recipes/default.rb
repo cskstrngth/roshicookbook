@@ -6,3 +6,4 @@
 
 include_recipe 'apt::default'
 include_recipe 'roshicookbook::firewall'
+include_recipe 'roshicookbook::web'
