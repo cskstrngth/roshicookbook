@@ -1,0 +1,17 @@
+user <%= node['roshicookbook']['http_service']['user'] %>;
+worker_processes <%= node['roshicookbook']['http_service']['worker_processes'] %>;
+pid /run/nginx.pid;
+
+events {
+        worker_connections <%= node['roshicookbook']['http_service']['worker_connections'] %>;
+        # multi_accept on;
+}
+
+# Proxy all HTTP requests to roshi-server's REST API.
+http {
+        server {
+                location / {
+                        proxy_pass http://localhost:<%= node['roshicookbook']['roshi-server']['port'] %>;
+                }
+        }
+}

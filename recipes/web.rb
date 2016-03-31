@@ -9,6 +9,12 @@ package 'nginx' do
   action :install
 end
 
+# Overwrite nginx configuration with template resource.
+# This resource should enable reverse proxy functionality.
+template '/etc/nginx/nginx.conf' do
+  source 'nginx.conf.erb'
+end
+
 # Enable and start nginx service.
 service 'nginx' do
   action [ :enable, :start ]
