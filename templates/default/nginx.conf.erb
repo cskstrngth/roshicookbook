@@ -1,9 +1,14 @@
-user <%= node['roshicookbook']['http_service']['user'] %>;
-worker_processes <%= node['roshicookbook']['http_service']['worker_processes'] %>;
+user <%= node['roshicookbook']['nginx']['user'] %>;
+worker_processes <%= node['roshicookbook']['nginx']['worker_processes'] %>;
 pid /run/nginx.pid;
 
+# Turn off daemonization here to avoid conflict with Upstart.
+# This seems safe to do in production:
+# http://nginx.org/en/docs/faq/daemon_master_process_off.html
+daemon off;
+
 events {
-        worker_connections <%= node['roshicookbook']['http_service']['worker_connections'] %>;
+        worker_connections <%= node['roshicookbook']['nginx']['worker_connections'] %>;
         # multi_accept on;
 }
 

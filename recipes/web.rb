@@ -16,7 +16,8 @@ end
 
 # Overwrite nginx configuration with template resource.
 # This resource should enable reverse proxy functionality.
-template '/etc/nginx/nginx.conf' do
+template node.default['roshicookbook']['nginx']['conf'] do
   source 'nginx.conf.erb'
   notifies :restart, 'service[nginx]'
 end
+
