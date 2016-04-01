@@ -10,7 +10,7 @@ depends 'firewall', '~> 2.5.0'
 depends 'docker', '~> 2.0'
 ```
 
-It has been tested on Ubunutu 14.04.
+It has been tested on Ubuntu 14.04.
 
 ## Stack
 
