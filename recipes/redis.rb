@@ -23,7 +23,7 @@ end
 # Apply redis configuration.
 template node.default['roshicookbook']['redis']['conf'] do
   source 'redis.conf.erb'
-  notifies [ :restart ], 'service[redis-server]'
+  notifies :restart, 'service[redis-server]'
 end
 
 # Enable and start service via Upstart.
