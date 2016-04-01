@@ -10,16 +10,18 @@ docker_service 'default' do
 end
 
 # Pull the roshidocker image from quay.io public repo.
-docker_image 'quay.io/cskstrngth/roshidocker' do
-  tag 'latest'
+# github.com/cskstrngth/roshibuilder
+# github.com/cskstrngth/roshidocker
+docker_image node.default['roshicookbook']['roshidocker']['repo'] do
+  tag node.default['roshicookbook']['roshidocker']['tag']
   action :pull
-  notifies :redeploy, 'docker_container[roshidocker]'
+  notifies :redeploy, "docker_container[#{node.default['roshicookbook']['roshidocker']['name']}]"
 end
 
 # Run the container.
-docker_container 'roshidocker' do
-  repo 'quay.io/cskstrngth/roshidocker'
-  tag 'latest'
-  port '6302:6302'
-  command "-redis.instances=localhost:6379"
+docker_container node.default['roshicookbook']['roshidocker']['name'] do
+  repo node.default['roshicookbook']['roshidocker']['repo']
+  tag node.default['roshicookbook']['roshidocker']['tag']
+  port "#{node.default['roshicookbook']['roshidocker']['port']}:#{node.default['roshicookbook']['roshidocker']['port']}"
+  command "-redis.instances=localhost:#{node.default['roshicookbook']['redis']['port']}"
 end

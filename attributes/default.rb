@@ -8,8 +8,11 @@ default['roshicookbook']['http_service']['user'] = 'www-data'
 default['roshicookbook']['http_service']['worker_processes'] = 4
 default['roshicookbook']['http_service']['worker_connections'] = 768
 
-# roshi
-default['roshicookbook']['roshi-server']['port'] = 6302
+# roshidocker
+default['roshicookbook']['roshidocker']['repo'] = 'quay.io/cskstrngth/roshidocker'
+default['roshicookbook']['roshidocker']['name'] = 'roshidocker'
+default['roshicookbook']['roshidocker']['tag'] = 'latest'
+default['roshicookbook']['roshidocker']['port'] = 6302
 
 # redis
 default['roshicookbook']['redis']['port'] = 6379

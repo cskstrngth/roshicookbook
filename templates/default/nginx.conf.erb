@@ -11,7 +11,7 @@ events {
 http {
         server {
                 location / {
-                        proxy_pass http://localhost:<%= node['roshicookbook']['roshi-server']['port'] %>;
+                        proxy_pass http://localhost:<%= node['roshicookbook']['roshidocker']['port'] %>;
                 }
         }
 }
