@@ -9,6 +9,8 @@ default['roshicookbook']['http_service']['worker_processes'] = 4
 default['roshicookbook']['http_service']['worker_connections'] = 768
 
 # roshidocker
+# github.com/cskstrngth/roshibuilder
+# github.com/cskstrngth/roshidocker
 default['roshicookbook']['roshidocker']['repo'] = 'quay.io/cskstrngth/roshidocker'
 default['roshicookbook']['roshidocker']['name'] = 'roshidocker'
 default['roshicookbook']['roshidocker']['tag'] = 'latest'

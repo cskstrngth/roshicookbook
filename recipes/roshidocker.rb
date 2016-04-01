@@ -9,9 +9,7 @@ docker_service 'default' do
   action [:create, :start]
 end
 
-# Pull the roshidocker image from quay.io public repo.
-# github.com/cskstrngth/roshibuilder
-# github.com/cskstrngth/roshidocker
+# Pull the roshidocker image from repo.
 docker_image node.default['roshicookbook']['roshidocker']['repo'] do
   tag node.default['roshicookbook']['roshidocker']['tag']
   action :pull
