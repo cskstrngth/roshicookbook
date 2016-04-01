@@ -1,7 +1,3 @@
-# Turn off daemonization here to avoid conflict with Upstart
-# https://gist.github.com/bdotdub/714533
-daemonize no
-
 # Bind to 127.0.0.1:<roshicookbook.redis.port>
 port <%= node['roshicookbook']['redis']['port'] %>
 bind 127.0.0.1
