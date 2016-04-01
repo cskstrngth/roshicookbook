@@ -1,0 +1,13 @@
+# Supervise the redis-server process with Upstart
+#
+# https://gist.github.com/bdotdub/714533
+# http://centos-vn.blogspot.ca/2014/06/daemon-showdown-upstart-vs-runit-vs.html
+
+description "redis server"
+
+start on runlevel [2345]
+stop on shutdown
+
+exec sudo -u redis /usr/bin/redis-server <%= node['roshicookbook']['redis']['conf'] %>
+
+respawn

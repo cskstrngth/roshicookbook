@@ -17,4 +17,6 @@ default['roshicookbook']['roshidocker']['tag'] = 'latest'
 default['roshicookbook']['roshidocker']['port'] = 6302
 
 # redis
+default['roshicookbook']['redis']['conf'] = '/etc/redis/redis.conf'
 default['roshicookbook']['redis']['port'] = 6379
+default['roshicookbook']['redis']['init_conf'] = '/etc/init/redis-server.conf'
