@@ -6,11 +6,12 @@ default['roshicookbook']['http_allow_in_port'] = 80
 # nginx
 default['roshicookbook']['nginx']['user'] = 'www-data'
 default['roshicookbook']['nginx']['conf'] = '/etc/nginx/nginx.conf'
-default['roshicookbook']['nginx']['worker_processes'] = 1
-default['roshicookbook']['nginx']['worker_connections'] = 512
-#default['roshicookbook']['nginx']['init_conf'] = '/etc/init/nginx.conf'
-#default['roshicookbook']['nginx']['path'] = '/usr/sbin/nginx'
-#default['roshicookbook']['nginx']['pid_file'] = '/var/run/nginx.pid'
+default['roshicookbook']['nginx']['worker_processes'] = 3
+default['roshicookbook']['nginx']['worker_connections'] = 1024
+default['roshicookbook']['nginx']['service_name'] = 'nginx-upstart'
+default['roshicookbook']['nginx']['init_conf'] = '/etc/init/nginx.conf'
+default['roshicookbook']['nginx']['path'] = '/usr/sbin/nginx'
+default['roshicookbook']['nginx']['pid_file'] = '/var/run/nginx.pid'
 
 # roshidocker
 # github.com/cskstrngth/roshibuilder

@@ -1,0 +1,25 @@
+# Supervise the nginx process with Upstart
+#
+# https://www.nginx.com/resources/wiki/start/topics/examples/ubuntuupstart/
+# http://gsusmonzon.blogspot.ca/2014/10/quick-tip-nginxconf-file-for-upstart-in.html
+
+description "nginx"
+
+start on (filesystem and net-device-up IFACE=!lo)
+stop on runlevel [!2345]
+
+env DAEMON=<%= node['roshicookbook']['nginx']['path'] %>
+env PID=<%= node['roshicookbook']['nginx']['pid_file'] %>
+
+expect fork
+respawn
+respawn limit 10 5
+
+pre-start script
+        $DAEMON -t
+        if [ $? -ne 0 ]
+                then exit $?
+        fi
+end script
+
+exec $DAEMON -c <%= node['roshicookbook']['nginx']['conf'] %>
