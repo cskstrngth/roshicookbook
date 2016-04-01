@@ -39,4 +39,5 @@ end
 service node.default['roshicookbook']['redis']['service_name'] do
   provider Chef::Provider::Service::Upstart
   action [ :enable, :start ]
+  subscribes :restart, node.default['roshicookbook']['redis']['conf'], :immediately
 end
