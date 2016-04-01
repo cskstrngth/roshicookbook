@@ -25,4 +25,4 @@ default['roshicookbook']['redis']['user'] = 'redis'
 default['roshicookbook']['redis']['path'] = '/usr/bin/redis-server'
 default['roshicookbook']['redis']['conf'] = '/etc/redis/redis.conf'
 default['roshicookbook']['redis']['port'] = 6379
-default['roshicookbook']['redis']['init_conf'] = '/etc/init/redis-server.conf'
+default['roshicookbook']['redis']['service_name'] = 'redis-server-upstart'
