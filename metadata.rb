@@ -8,3 +8,4 @@ version '0.1.0'
 
 depends 'apt', '~> 3.0.0'
 depends 'firewall', '~> 2.5.0'
+depends 'docker', '~> 2.0'
