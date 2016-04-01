@@ -20,7 +20,9 @@ It has been tested on Ubunutu 14.04.
    * supervised by Upstart
  * roshi-server
    * runs in [a minimalist](https://github.com/cskstrngth/roshibuild) [docker container](https://github.com/cskstrngth/roshidocker)
-   * built from source
+     * container only includes a single statically-linked pre-built executable; total size ~7.5 MB
+     * see [issue #3](https://github.com/cskstrngth/roshicookbook/issues/3) for more details
+   * built from [source](https://github.com/soundcloud/roshi)
    * container is supervised as a docker daemon
  * redis
    * installed from package
