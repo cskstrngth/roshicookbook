@@ -23,5 +23,7 @@ docker_container node.default['roshicookbook']['roshidocker']['name'] do
   repo node.default['roshicookbook']['roshidocker']['repo']
   tag node.default['roshicookbook']['roshidocker']['tag']
   port "#{node.default['roshicookbook']['roshidocker']['port']}:#{node.default['roshicookbook']['roshidocker']['port']}"
+  network_mode 'host'
+  restart_policy 'always'
   command "-redis.instances=localhost:#{node.default['roshicookbook']['redis']['port']}"
 end
