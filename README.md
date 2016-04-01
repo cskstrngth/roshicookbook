@@ -2,6 +2,30 @@
 
 A Chef cookbook for a simple CRDT stack based on [roshi](https://github.com/soundcloud/roshi).
 
+## Dependencies
+
+```
+depends 'apt', '~> 3.0.0'
+depends 'firewall', '~> 2.5.0'
+depends 'docker', '~> 2.0'
+```
+
+It has been tested on Ubunutu 14.04.
+
+## Stack
+
+ * nginx
+   * acts as the frontend reverse proxy
+   * installed from package
+   * supervised by Upstart
+ * roshi-server
+   * runs in [a minimalist](https://github.com/cskstrngth/roshibuild) [docker container](https://github.com/cskstrngth/roshidocker)
+   * built from source
+   * container is supervised as a docker daemon
+ * redis
+   * installed from package
+   * supervised by Upstart
+
 ## Reference
 
  * [Chef tutorials](https://learn.chef.io/tutorials)
